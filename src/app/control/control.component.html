@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-content fxLayout="column">
+    <h2 class="example-h2">Box Controls</h2>
+    <mat-form-field>
+      <input matInput placeholder="Rock Name"[ngModel]="spaceRock.name" (ngModelChange)="onNameUpdated($event)" > 
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Rock Color" [colorPicker]="spaceRock.color" [style.background]="spaceRock.color" (colorPickerChange)="onColorUpdated($event)"/>
+    </mat-form-field>
+    <mat-slider min="1" max="3" step="0.05" value="1" [value]="spaceRock.size" (change)="onSizeUpdated($event)"></mat-slider>
+    
+    <app-joystick #rockPosition (updated)="onPositionUpdated($event)"></app-joystick>
+  </mat-card-content>
+</mat-card>

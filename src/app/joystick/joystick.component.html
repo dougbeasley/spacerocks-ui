@@ -1,0 +1,4 @@
+<div class="pad">
+  <span class="delta" *ngIf="position">deltaX: {{ position?.deltaX }} deltaY: {{ position?.deltaY }}</span>
+  <virtual-joystick (onChange)="updatePosition($event)"></virtual-joystick>
+</div>

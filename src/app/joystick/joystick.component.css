@@ -1,0 +1,25 @@
+.pad {
+    height: 300px;
+}
+
+.tag {
+    color: #D43669;
+}
+
+.atn {
+    color: #31708f;
+}
+
+.pun {
+    color: #7a8b94;
+}
+
+.atv {
+    color: #647f11;
+}
+
+.delta {
+    position: absolute;
+    color: white;
+    padding-left: 3px;
+}

@@ -8,5 +8,5 @@ import * as anime from 'animejs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Nobody likes me...';
+  title = 'Space Cubes';
 }

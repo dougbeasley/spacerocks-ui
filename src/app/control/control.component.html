@@ -8,7 +8,7 @@
       <input matInput placeholder="Rock Color" [colorPicker]="spaceRock.color" [style.background]="spaceRock.color" (colorPickerChange)="onColorUpdated($event)"/>
     </mat-form-field>
     <mat-slider min="1" max="3" step="0.05" value="1" [value]="spaceRock.size" (change)="onSizeUpdated($event)"></mat-slider>
-    
+    <mat-slider min="1" max="50" step="0.5" value="25" [value]="spaceRock.speed" (change)="onSpeedUpdated($event)"></mat-slider>
     <app-joystick #rockPosition (updated)="onPositionUpdated($event)"></app-joystick>
   </mat-card-content>
 </mat-card>

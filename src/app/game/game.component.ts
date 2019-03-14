@@ -56,7 +56,7 @@ export class GameComponent {
     let x = this.mesh.position.x + (this.translateX / this.speedFactor);
     let y = this.mesh.position.y + (this.translateY / this.speedFactor);
 
-    var pos = new THREE.Vector3(x, y, 0);
+    let pos = new THREE.Vector3(x, y, this.mesh.position.z);
     if (frustum.containsPoint(pos)) {
       this.mesh.position.x += (this.translateX / this.speedFactor);
       this.mesh.position.y += (this.translateY / this.speedFactor);
@@ -65,8 +65,8 @@ export class GameComponent {
 
     this.renderer.render(this.scene, this.camera);
 
-    console.log(this.mesh.position);
-    console.log(`h: ${this.rendererContainer.nativeElement.offsetHeight}`, `w: ${this.rendererContainer.nativeElement.offsetWidth}`,);
+    // console.log(this.mesh.position);
+    // console.log(`h: ${this.rendererContainer.nativeElement.offsetHeight}`, `w: ${this.rendererContainer.nativeElement.offsetWidth}`,);
   }
 
   onChange(rock: SpaceRock) {
@@ -75,6 +75,8 @@ export class GameComponent {
     this.mesh.scale.x = rock.size;
     this.mesh.scale.y = rock.size;
     this.mesh.scale.z = rock.size;
+
+    this.speedFactor = (51 - rock.speed);
 
     this.mesh.material.color =  new THREE.Color(rock.color);
 

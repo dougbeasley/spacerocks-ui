@@ -14,6 +14,7 @@ export class ControlComponent implements OnInit {
     name: 'Doug',
     color: '#fd59d7',
     size: 1,
+    speed: 25,
     deltaX: 0.0,
     deltaY: 0.0
   };
@@ -43,6 +44,11 @@ export class ControlComponent implements OnInit {
 
   private onSizeUpdated($event: MatSliderChange): void {
     this.spaceRock.size = $event.value;
+    this.notify();
+  }
+
+  private onSpeedUpdated($event: MatSliderChange): void {
+    this.spaceRock.speed = $event.value;
     this.notify();
   }
 

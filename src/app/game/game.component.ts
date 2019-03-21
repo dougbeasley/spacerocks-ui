@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 
 import * as THREE from 'three';
-import { SpaceRock } from '../space-rock';
+import { SpaceRock } from '../models/space-rock';
+import { NotificationService } from '../services/notification/notification.service';
 
 @Component({
   selector: 'app-game',
@@ -20,7 +21,7 @@ export class GameComponent {
   camera = null;
   mesh = null;
 
-  constructor() {
+  constructor(private notificationService : NotificationService) {
     this.scene = new THREE.Scene();
 
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
@@ -83,7 +84,7 @@ export class GameComponent {
     this.translateX = rock.deltaX;
     this.translateY = rock.deltaY;
 
-    console.log(`x: ${this.mesh.rotation.x}, y: ${this.mesh.rotation.y}`);
+    this.notificationService.notify(rock);
   }
 
   @HostListener('window:resize', ['$event'])

@@ -1,9 +1,10 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>Welcome to {{ title }}!</h1>
-</div>
-<nav>
-  <a routerLink="/game" routerLinkActive="active">Game Screen</a>
-  <a routerLink="/control" routerLinkActive="active">Controls</a>
-</nav>
-<router-outlet></router-outlet>
+<mat-toolbar color="primary" class="fixed-header">
+  <mat-toolbar-row>
+    <span>Space Rocks</span>
+    <a mat-button routerLink="/game" routerLinkActive="active">Game Screen</a>
+    <a mat-button routerLink="/control">Controls</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<main>
+  <router-outlet style="margin-top: 80px;"></router-outlet>
+</main>

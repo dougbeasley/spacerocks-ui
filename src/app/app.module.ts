@@ -15,7 +15,6 @@ import { JoystickComponent } from './joystick/joystick.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { ControlComponent } from './control/control.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

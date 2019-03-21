@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { SpaceRock } from '../space-rock';
-import { PositionVector } from '../position-vector';
+import { SpaceRock } from '../models/space-rock';
+import { PositionVector } from '../models/position-vector';
 import { MatSliderChange } from '@angular/material';
 
 @Component({

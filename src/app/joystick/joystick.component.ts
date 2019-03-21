@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { PositionVector } from '../position-vector';
+import { PositionVector } from '../models/position-vector';
 
 @Component({
   selector: 'app-joystick',

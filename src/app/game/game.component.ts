@@ -40,7 +40,7 @@ export class GameComponent {
   ngAfterViewInit() {
     const h = this.rendererContainer.nativeElement.offsetHeight;
     const w = this.rendererContainer.nativeElement.offsetWidth;
-    //this.renderer.setSize(window.innerWidth, window.innerHeight);
+
     this.renderer.setSize(w, h);
     this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
     this.animate();

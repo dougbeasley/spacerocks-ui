@@ -2,23 +2,29 @@ import { Injectable } from '@angular/core';
 import { SpaceRock } from '../../models/space-rock';
 
 import { webSocket } from "rxjs/webSocket";
+import { Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+
+const CONTROL_URL = "ws://localhost:8080/control";
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationService {
-
-  private subject = webSocket('ws://localhost:8080/connect');
+  
+  private subject: Subject<SpaceRock> = webSocket<SpaceRock>(CONTROL_URL);
 
   constructor() { 
     this.subject.subscribe(
-      resp => console.log('message received: ' + resp['message']), // Called whenever there is a message from the server.
-      err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-      () => console.log('complete') // Called when connection is closed (for whatever reason).
+      rock => console.log('message received: ' + rock), 
+      err => console.log(err),
+      () => console.log('complete')
     );
   }
 
   notify(rock : SpaceRock) {
+    console.log("sending...")
     this.subject.next(rock);
   }
 

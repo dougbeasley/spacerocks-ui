@@ -14,13 +14,15 @@ import { JoystickComponent } from './joystick/joystick.component';
 
 import { AppMaterialModule } from './app-material/app-material.module';
 import { ControlComponent } from './control/control.component';
+import { WorldComponent } from './world/world.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
     JoystickComponent,
-    ControlComponent
+    ControlComponent,
+    WorldComponent
   ],
   imports: [
     BrowserModule,

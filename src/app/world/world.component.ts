@@ -60,22 +60,24 @@ export class WorldComponent {
   }
 
   private updateRock(rock : SpaceRock) {
-    this.rocks.set(rock.name, rock);
+    this.rocks.set(rock.id, rock);
 
-    if(!this.scene.getObjectByName(rock.name)) {
+    if(!this.scene.getObjectByName(rock.id)) {
       const geometry = new THREE.BoxGeometry(100, 100, 100);
       const material = new THREE.MeshLambertMaterial({color: 0xfd59d7});
       let mesh = new THREE.Mesh(geometry, material);
-      mesh.name = rock.name;
+      /* TODO might be better to use a user data field instead of a name */
+
+      mesh.name = rock.id;
       this.scene.add(mesh);
     }
   }
 
-  private removeRock(name : string) {
+  private removeRock(id : string) {
     
-    this.rocks.delete(name);
+    this.rocks.delete(id);
     
-    let obj = this.scene.getObjectByName(name);
+    let obj = this.scene.getObjectByName(id);
     this.scene.remove(obj);
   }
 
@@ -88,6 +90,14 @@ export class WorldComponent {
     /* animate rocks */
     for (let [key, rock] of this.rocks.entries()) {
       let mesh = this.scene.getObjectByName(key);
+
+      mesh.userData.rockName = rock.name;
+
+      mesh.scale.x = rock.size;
+      mesh.scale.y = rock.size;
+      mesh.scale.z = rock.size;
+
+      mesh.material.color =  new THREE.Color(rock.color);
 
       /* simple rotation*/
       mesh.rotation.x += 0.01;

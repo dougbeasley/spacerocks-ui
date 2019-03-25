@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SpaceRock } from '../models/space-rock';
 import { PositionVector } from '../models/position-vector';
 import { MatSliderChange } from '@angular/material';
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-control',
@@ -10,14 +11,7 @@ import { MatSliderChange } from '@angular/material';
 })
 export class ControlComponent implements OnInit {
 
-  private spaceRock : SpaceRock = {
-    name: 'Doug',
-    color: '#fd59d7',
-    size: 1,
-    speed: 25,
-    deltaX: 0.0,
-    deltaY: 0.0
-  };
+  private spaceRock : SpaceRock = new SpaceRock('Doug','#fd59d7',1,25,0.0,0.0);
 
   constructor() { }
 

@@ -1,9 +1,19 @@
-<mat-toolbar color="primary" class="fixed-header">
-  <mat-toolbar-row>
-    <span>Space Rocks</span>
-    <a mat-button routerLink="/game" routerLinkActive="active">Game Screen</a>
-    <a mat-button routerLink="/world">World</a>
-  </mat-toolbar-row>
+<mat-toolbar color="primary">
+  <span class="fill-remaining-space">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <button mat-menu-item>
+  
+        <a mat-button routerLink="/game" routerLinkActive="active">Rock Control</a>
+      </button>
+      <button mat-menu-item>
+        <a mat-button routerLink="/world">World</a>
+      </button>
+    </mat-menu>
+  </span>
+  <span class="fill-remaining-space">Space Rocks</span>
 </mat-toolbar>
 <main>
   <router-outlet style="margin-top: 80px;"></router-outlet>

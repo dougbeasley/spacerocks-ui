@@ -8,13 +8,17 @@ import { PositionVector } from '../models/position-vector';
 })
 export class JoystickComponent {
 
-  private position: any;
+  private _position: any;
 
   @Output() updated = new EventEmitter<PositionVector>();
 
-  private updatePosition($event: any): void {
-    this.position = $event;
-    this.updated.emit({x : this.position.deltaX, y: this.position.deltaY} as PositionVector);
+  get position() {
+    return this._position;
+  }
+
+  updatePosition($event: any): void {
+    this._position = $event;
+    this.updated.emit({x : this._position.deltaX, y: this._position.deltaY} as PositionVector);
   }
 
 }

@@ -1,13 +1,19 @@
 <mat-card>
   <mat-card-content fxLayout="column">
     <mat-form-field>
-      <input matInput placeholder="Rock Name"[ngModel]="spaceRock.name" (ngModelChange)="onNameUpdated($event)" > 
+      <input matInput placeholder="Rock Name" [ngModel]="spaceRock.name" (ngModelChange)="onNameUpdated($event)" > 
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="Rock Color" [colorPicker]="spaceRock.color" [style.background]="spaceRock.color" (colorPickerChange)="onColorUpdated($event)"/>
     </mat-form-field>
-    <h4>Size</h4><mat-slider min="1" max="3" step="0.05" value="1" [value]="spaceRock.size" (change)="onSizeUpdated($event)"></mat-slider>
-    <h4>Speed</h4><mat-slider min="1" max="50" step="0.5" value="25" [value]="spaceRock.speed" (change)="onSpeedUpdated($event)"></mat-slider>
+    <div fxLayout="row">
+      <h4 fxFlex="40">Size</h4>
+      <mat-slider min="1" max="3" step="0.05" value="1" [value]="spaceRock.size" (change)="onSizeUpdated($event)" fxFlex></mat-slider>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start start">
+      <h4 fxFlex="40">Speed</h4>
+      <mat-slider min="1" max="50" step="0.5" value="25" [value]="spaceRock.speed" (change)="onSpeedUpdated($event)" fxFlex></mat-slider>
+    </div>
     <h4>Joystick</h4><app-joystick #rockPosition (updated)="onPositionUpdated($event)"></app-joystick>
   </mat-card-content>
 </mat-card>

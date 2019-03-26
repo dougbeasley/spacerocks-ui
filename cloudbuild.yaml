@@ -5,3 +5,8 @@ steps:
   args: ['install','-g','@angular/cli']
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run','build-prod']
+
+artifacts:
+  objects:
+    location: ['gs://spacerocks/ui/latest']
+    paths: [['dist/spacerocks-ui']]

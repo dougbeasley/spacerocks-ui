@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'wss://backend.spacerocks.live:8080'
+  apiUrl: 'wss://api.spacerocks.live:8080'
 };

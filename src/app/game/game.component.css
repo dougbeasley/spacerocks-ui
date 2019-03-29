@@ -1,6 +1,5 @@
 
 
 .screen {
-    min-width: 280px;
-    min-height: 280px
+  height: calc(100vh - 64px);
 }

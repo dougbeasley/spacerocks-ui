@@ -1,6 +1,8 @@
-<div #mainContainer fxLayout="row" fxLayoutAlign="start start">
+<div #mainContainer fxLayout="row" fxLayoutAlign="start">
     <div fxFlex="40">
         <app-control (changed)="onChange($event)"></app-control>
     </div>
-    <div #rendererContainer class="screen" fxFlex="60"></div>
+    <div fxFlex>
+        <div #rendererContainer class="screen"></div>
+    </div>
 </div>

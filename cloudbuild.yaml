@@ -5,5 +5,5 @@ steps:
   args: ['install','-g','@angular/cli']
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run','build-prod']
-- name: 'gcr.io/cloud-builders/gsutil'
-  args: ['-m', 'cp', '-r', 'dist/spacerocks-ui*', 'gs://spacerocks/ui/latest']
+- name: 'gcr.io/$PROJECT_ID/firebase'
+  args: ['deploy', '-P', '$PROJECT_ID',  '--only',  'hosting', '--token', '$_FIREBASE_DEPLOY_TOKEN']

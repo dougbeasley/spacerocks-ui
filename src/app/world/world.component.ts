@@ -7,7 +7,7 @@ import { animate } from '@angular/animations';
 import { Subject } from 'rxjs';
 import { webSocket } from "rxjs/webSocket";
 
-const LISTEN_URL = "ws://localhost:8080/listen";
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-world',
@@ -17,7 +17,7 @@ const LISTEN_URL = "ws://localhost:8080/listen";
 export class WorldComponent {
   @ViewChild('rendererContainer') rendererContainer: ElementRef;
 
-  private subject: Subject<SpaceRock> = webSocket<SpaceRock>(LISTEN_URL);
+  private subject: Subject<SpaceRock> = webSocket<SpaceRock>(environment.apiUrl + '/listen');
 
   renderer = new THREE.WebGLRenderer();
   scene = null;

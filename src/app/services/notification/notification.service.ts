@@ -4,16 +4,15 @@ import { SpaceRock } from '../../models/space-rock';
 import { webSocket } from "rxjs/webSocket";
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 
-
-const CONTROL_URL = "ws://localhost:8080/control";
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationService {
   
-  private subject: Subject<SpaceRock> = webSocket<SpaceRock>(CONTROL_URL);
+  private subject: Subject<SpaceRock> = webSocket<SpaceRock>(environment.apiUrl + '/control');
 
   constructor() { 
     this.subject.subscribe(

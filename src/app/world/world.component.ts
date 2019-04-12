@@ -8,6 +8,7 @@ import { Subject } from 'rxjs';
 import { webSocket } from "rxjs/webSocket";
 
 import { environment } from '../../environments/environment';
+import { retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-world',
@@ -35,7 +36,8 @@ export class WorldComponent {
     light.position.set(100, 0, 250);
     this.scene.add(light);
 
-    this.subject.subscribe(
+    this.subject.pipe(retry())
+    .subscribe(
       rock => this.updateRock(rock),
       err => console.error(err), // Called if at any point WebSocket API signals some kind of error.
       () => console.log('complete') // Called when connection is closed (for whatever reason).

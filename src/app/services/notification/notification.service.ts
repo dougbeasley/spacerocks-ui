@@ -3,7 +3,7 @@ import { SpaceRock } from '../../models/space-rock';
 
 import { webSocket } from "rxjs/webSocket";
 import { Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { retry } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 
 
@@ -15,7 +15,7 @@ export class NotificationService {
   private subject: Subject<SpaceRock> = webSocket<SpaceRock>(environment.apiUrl + '/control');
 
   constructor() { 
-    this.subject.subscribe(
+    this.subject.pipe(retry()).subscribe(
       rock => console.log('message received: ' + rock), 
       err => console.log(err),
       () => console.log('complete')

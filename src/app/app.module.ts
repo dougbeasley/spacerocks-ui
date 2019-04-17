@@ -15,6 +15,7 @@ import { JoystickComponent } from './joystick/joystick.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { ControlComponent } from './control/control.component';
 import { WorldComponent } from './world/world.component';
+import { ColorPickerComponent } from './color-picker/color-picker.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { WorldComponent } from './world/world.component';
     GameComponent,
     JoystickComponent,
     ControlComponent,
-    WorldComponent
+    WorldComponent,
+    ColorPickerComponent
   ],
   imports: [
     BrowserModule,

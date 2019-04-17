@@ -11,14 +11,13 @@
         </mat-expansion-panel-header>
 
 
-        <div fxLayout="row" fxLayoutAlign="space-between start">
-          <mat-form-field fxFlex="45">
+        <div fxLayout="column" fxLayoutAlign="space-between start">
+          <mat-form-field>
             <input matInput placeholder="Rock Name" [ngModel]="spaceRock.name" (ngModelChange)="onNameUpdated($event)">
           </mat-form-field>
-          <mat-form-field fxFlex="45">
-            <input matInput placeholder="Rock Color" [colorPicker]="spaceRock.color"
-              [style.background]="spaceRock.color" (colorPickerChange)="onColorUpdated($event)" />
-          </mat-form-field>
+         
+          <app-color-picker [heading]="'Rock Color'" [color]="spaceRock.color" (event)="onColorUpdated($event)"></app-color-picker>
+     
         </div>
         <div fxLayout="row">
           <h4 fxFlex="40">Size</h4>
